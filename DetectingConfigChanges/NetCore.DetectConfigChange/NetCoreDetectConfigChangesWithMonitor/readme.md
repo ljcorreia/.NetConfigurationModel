@@ -2,9 +2,11 @@
 
 This is a .Net Core Web Application project (API) wich demonstrates how the new .Net Core Configuration Model works when detecting and reloading configuration changes.
 
-The default settings file is included and configuration is built using Conficuration builder which is passed in from the Program to the Startup class in the way it is expected with the .Net Core 2.0.
+The default settings file and any other json file is included using .AddJsonFile() and the configuration is built using Configuration builder which is passed in from the Program to the Startup class in the way it is expected with the .Net Core 2.0.
 
-Prior this version the configuration was built differently with the use of ConfigurationBuilder() and UseConfiguration() WebHost extension method.
+Prior to this version the configuration was built differently with the use of ConfigurationBuilder() and UseConfiguration() through WebHost extension methods.
+
+In the example below a custom json file 'version-config.json' is included and that file is later mapped to a Strongly Typed object named VersionConfig.cs.
 
 ## Previous versions of .Net Core
 
@@ -48,6 +50,22 @@ It also makes use of IChangeToken which makes use of ChangeToken.OnChange() to h
 
 All together, it shows how this scenario can be achieved in the new version of .Net Core 2.0.
 
-If you would like to contribute by maintaining ths project up to date, just drop me a message.
+Just run this project hitting the Version controller. There is an API Base Controller used to enable or disabled the Monitor.
+
+```
+http://localhost:9435/api/version
+```
+
+To enable the monitor, just hit the endpoint below (use stop to disable it):
+
+```
+http://localhost:9435/api/start
+```
+
+After changing the version-config.json with the project running (under IISExpress by default) you will see that the changes you have made to the file can only be seen if the monitor is enabled.
+
+So the version endpoint will only show the latest version if monitor is enabled. Obviously, this is only a demonstration and not how you would necessarily use the monitor.
+
+If you would like to contribute by maintaining this project up to date, just drop me a message.
 
 Enjoy! 

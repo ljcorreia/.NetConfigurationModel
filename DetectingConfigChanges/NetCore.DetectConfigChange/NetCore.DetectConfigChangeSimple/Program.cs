@@ -2,7 +2,7 @@
 using System.IO;
 using Microsoft.Extensions.Configuration;
 
-namespace NetCore.DetectConfigChange
+namespace NetCore.DetectConfigChangeSimple
 {
     class Program
     {

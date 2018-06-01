@@ -1,13 +1,10 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using System;
+using System.Diagnostics;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Primitives;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace WebApplication1
+namespace NetCoreDetectConfigChangesWithMonitor
 {
     public class ConfigurationMonitor : IConfigurationMonitor
     {

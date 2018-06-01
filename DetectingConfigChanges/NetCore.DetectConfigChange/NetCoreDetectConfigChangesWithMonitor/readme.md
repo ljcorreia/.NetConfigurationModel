@@ -4,7 +4,7 @@ This is a .Net Core Web Application project (API) wich demonstrates how the new 
 
 The default settings file and any other json file is included using .AddJsonFile() and the configuration is built using Configuration builder which is passed in from the Program to the Startup class in the way it is expected with the .Net Core 2.0.
 
-Prior to this version the configuration was built differently with the use of ConfigurationBuilder() and UseConfiguration() through WebHost extension methods.
+Prior to this version the configuration was built differently with the use of ConfigurationBuilder() and UseConfiguration() through WebHost extension methods as opposed to ConfigureAppConfiguration() - which I could only figure out thanks to [this StackOverflow answer](https://stackoverflow.com/a/46570073/4189349).
 
 In the example below a custom json file 'version-config.json' is included and that file is later mapped to a Strongly Typed object named VersionConfig.cs.
 

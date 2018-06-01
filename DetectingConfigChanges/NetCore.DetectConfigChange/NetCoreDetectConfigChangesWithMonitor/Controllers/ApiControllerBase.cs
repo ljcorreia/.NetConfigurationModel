@@ -31,7 +31,7 @@ namespace WebApplication1.Controllers
         [Route("stop")]
         public IActionResult StopMonitor()
         {
-            var message = (_monitor.MonitorEnabled) ? "Monitor was already stopped" : "Monitor has been stopped";
+            var message = (_monitor.MonitorEnabled) ? "Monitor has been stopped" : "Monitor was already stopped";
             _monitor.MonitorEnabled = false;
 
             return new OkObjectResult(new JObject(new JProperty("result", message)));

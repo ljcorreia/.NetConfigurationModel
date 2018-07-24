@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 namespace NetCoreDetectConfigChangesWithMonitor
 {
@@ -24,6 +25,9 @@ namespace NetCoreDetectConfigChangesWithMonitor
             services.AddSingleton<IConfigurationMonitor, ConfigurationMonitor>();
             //services.Configure<VersionConfig>(Configuration);
             services.Configure<VersionConfig>(Configuration.GetSection("VersionConfig"));
+
+            //To not use IOptions to resolve dependency add Scoped value directly as shown below
+            //services.AddScoped(cfg => cfg.GetService<IOptionsSnapshot<VersionConfig>>().Value);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
